@@ -1,0 +1,17 @@
+@font-face {
+    font-family: regular;
+    src: url(./Assests/fotnts/Gabarito-Regular.woff2);
+}
+@font-face {
+    font-family: medium;
+    src: url(./Assests/fotnts/Gabarito-Medium.woff2);
+}
+@font-face {
+    font-family: semibold;
+    src: url(./Assests/fotnts/Gabarito-SemiBold.woff2);
+}
+@font-face {
+    font-family: bold;
+    src: url(./Assests/fotnts/Gabarito-Bold.woff2);
+}
+
