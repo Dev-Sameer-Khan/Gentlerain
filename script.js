@@ -1,8 +1,4 @@
-const lenis = new Lenis({
-  smooth: true, // Enable smooth scrolling
-  duration: 1.5 , // Duration for the smooth scroll effect
-  easing: (t) => t * (2 - t), // Custom easing function for a smoother effect
-});
+const lenis = new Lenis();
 
 function raf(time) {
   lenis.raf(time);
@@ -163,3 +159,84 @@ document.addEventListener("DOMContentLoaded", (event) => {
       y: 150,
     });
 });
+
+
+const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const frames = {
+            currentIndex: 0,
+            maxIndex: 147
+        };
+
+        let imagesLoaded = 0;
+        let images = [];
+
+        function preloadImages() {
+            for (let i = 1; i <= frames.maxIndex; i++) {
+                const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.jpeg`;
+                const img = new Image();
+                img.src = imageUrl;
+                img.onload = () => {
+                    imagesLoaded++;
+                    if (imagesLoaded === frames.maxIndex) {
+                        loadImages(frames.currentIndex);
+                        startAnimation();
+                    }
+                };
+                images.push(img);
+            }
+        }
+
+        function loadImages(index) {
+            if (index >= 0 && index < frames.maxIndex) {
+                const img = images[index];
+
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                const scaleX = canvas.width / img.width;
+                const scaleY = canvas.height / img.height;
+                const scale = Math.max(scaleX, scaleY);
+
+                const newWidth = img.width * scale;
+                const newHeight = img.height * scale;
+
+                const offsetX = (canvas.width - newWidth) / 2;
+                const offsetY = (canvas.height - newHeight) / 2;
+
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = "high";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+                frames.currentIndex = index;
+            }
+        }
+
+        function startAnimation() {
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".parent",
+                    start: "top top",
+                    end: "1000% bottom",
+                    pin : true, 
+                    scrub: 2,
+                },
+            });
+            function updateFrames(index) {
+                return {
+                    currentIndex: index,
+                    ease: "linear",
+                    onUpdate: function () {
+                        loadImages(Math.floor(frames.currentIndex));
+                    },
+                };
+            }
+            tl.to(frames, updateFrames(frames.maxIndex), "a"); // Ensure frames are updated
+            window.addEventListener("resize", function () {
+                loadImages(Math.floor(frames.currentIndex));
+            });
+        }
+
+        preloadImages();
