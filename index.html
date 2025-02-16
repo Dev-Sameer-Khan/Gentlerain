@@ -14,7 +14,7 @@
   </head>
   <body>
     <main>
-      <section class="hero w-full h-screen">
+      <section class="hero w-full h-screen overflow-hidden">
         <div class="unicorn-embed w-full h-full" id="unicorn"></div>
         <dotlottie-player
           class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -30,13 +30,13 @@
           class="overlay h-full w-full absolute top-0 left-0 flex items-center justify-between flex-col"
         >
           <nav
-            class="w-full z-[99] py-4 px-6 flex items-center justify-between gap-10 text-[#fff0b3] text-[1vw] font-[bold]"
+            class="w-full z-[99] py-4 px-6 flex items-center justify-between gap-10 text-[#fff0b3] text-[1vw] max-[599px]:text-[5vw] font-[bold]"
           >
             <div class="logo w-[10%]">
               <h1>gentlerain</h1>
             </div>
             <ul
-              class="flex items-center justify-start text-[1vw] h-full gap-10 px-4 w-[60%]"
+              class="flex items-center justify-start text-[1vw] h-full gap-10 px-4 w-[60%] max-[599px]:hidden"
             >
               <li><a href="#">Prducts</a></li>
               <li><a href="#">Concept</a></li>
@@ -44,7 +44,7 @@
               <li><a href="#">Partners</a></li>
             </ul>
             <div
-              class="btns flex items-center justify-between text-[1vw] gap-10 w-[35%]"
+              class="btns flex items-center justify-between text-[1vw] gap-10 w-[35%] max-[599px]:hidden"
             >
               <div class="flex gap-10">
                 <button><a href="#">Sign Up</a></button>
@@ -60,11 +60,21 @@
                 </button>
               </div>
             </div>
+            <svg
+              class="hidden max-[599px]:inline-block w-[5%]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+            </svg>
           </nav>
 
-          <div class="btm w-full px-8 py-4 flex items-center justify-between">
+          <div
+            class="btm w-full px-8 max-[599px]:px-6 py-4 flex items-center justify-between max-[599px]:flex-col"
+          >
             <div
-              class="txt text-[2.7vw] text-[#fff0b3] font-[medium] w-[60%] leading-none"
+              class="txt text-[2.7vw] max-[599px]:text-[7vw] text-[#fff0b3] font-[medium] w-[60%] max-[599px]:w-full max-[599px]:mb-4 leading-none"
             >
               <p>
                 Leverage AI to grow valuable skills through immersive realistic
@@ -72,7 +82,7 @@
               </p>
             </div>
             <div
-              class="btns font-[semibold] flex items-center justify-between gap-10"
+              class="btns max-[599px]:w-full max-[599px]:text-[5vw] font-[semibold] flex items-center justify-between gap-10"
             >
               <button
                 class="border-2 border-[#fff0b3] text-[#fff0b3] px-12 py-2 rounded-full"
@@ -104,24 +114,32 @@
         </div>
         <div
           id="section2-1"
-          class="content-inner-2 absolute top-0 z-[4] flex items-center justify-between text-[#fff0b3] w-full overflow-hidden h-screen"
+          class="content-inner-2 absolute top-0 z-[4] flex items-center justify-between max-[599px]:justify-center max-[599px]:flex-col text-[#fff0b3] w-full overflow-hidden h-screen"
         >
           <div
             id="top-nav-sec2-1"
             class="nav-inner-2 z-[5] absolute top-0 w-full py-2 px-6 border-y-[1px] border-black bg-white"
           >
-            <h3 class="text-[1.2vw] font-[semibold]">Practice</h3>
+            <h3 class="text-[1.2vw] max-[599px]:text-[5vw] font-[semibold]">
+              Practice
+            </h3>
           </div>
           <div
-            class="lft-content-inner-2 flex items-start justify-center flex-col w-1/2 h-full px-6"
+            class="lft-content-inner-2 flex items-start justify-center flex-col w-1/2 max-[599px]:w-full h-full px-6"
           >
-            <h1 class="font-[semibold] text-[5vw]">Practice</h1>
-            <p class="text-[1.7vw] w-[75%] font-[regular] leading-[1.2]">
+            <h1 class="font-[semibold] text-[5vw] max-[599px]:text-[15vw]">
+              Practice
+            </h1>
+            <p
+              class="text-[1.7vw] max-[599px]:text-[3.7vw] w-[75%] max-[599px]:w-full font-[regular] leading-[1.2]"
+            >
               Practice one scene at a time through the immersive story of a
               fictional company
             </p>
           </div>
-          <div class="rght-content-inner-2 px-6 w-1/2 h-full flex items-center">
+          <div
+            class="rght-content-inner-2 px-6 w-1/2 max-[599px]:w-full h-full flex items-center"
+          >
             <img
               width="100%"
               src="https://cdn.prod.website-files.com/672a4022c04412b253b0aead/672a4022c04412b253b0aeed_1%402x.png"
@@ -131,24 +149,30 @@
         </div>
         <div
           id="section2-2"
-          class="content-inner-2 relative flex items-center justify-between text-[#fff0b3] bg-[#FD7024] w-full overflow-hidden h-screen"
+          class="content-inner-2 relative flex items-center justify-between max-[599px]:justify-center max-[599px]:flex-col text-[#fff0b3] bg-[#FD7024] w-full overflow-hidden h-screen"
         >
           <div
             id="top-nav-sec2-2"
             class="nav-inner-2 absolute z-[5] top-0 w-full py-2 px-6 border-y-[1px] border-black bg-white"
           >
-            <h3 class="text-[1.2vw] font-[semibold]">Upskill</h3>
+            <h3 class="text-[1.2vw] max-[599px]:text-[5vw] font-[semibold]">
+              Upskill
+            </h3>
           </div>
           <div
-            class="lft-content-inner-2 flex items-start z-[4] justify-center flex-col w-1/2 h-full px-6"
+            class="lft-content-inner-2 flex items-start z-[4] justify-center flex-col w-1/2 max-[599px]:w-full h-full px-6"
           >
-            <h1 class="font-[semibold] text-[5vw]">Upskill</h1>
-            <p class="text-[1.7vw] w-[75%] font-[regular] leading-[1.2]">
+            <h1 class="font-[semibold] text-[5vw] max-[599px]:text-[15vw]">
+              Upskill
+            </h1>
+            <p
+              class="text-[1.7vw] max-[599px]:text-[3.7vw] w-[75%] max-[599px]:w-full font-[regular] leading-[1.2]"
+            >
               Upskill by nailing true-to-life challenging work situations
             </p>
           </div>
           <div
-            class="rght-content-inner-2 w-1/2 h-full z-[4] flex items-center px-6"
+            class="rght-content-inner-2 w-1/2 max-[599px]:w-full h-full z-[4] flex items-center px-6"
           >
             <img
               width="100%"
@@ -159,24 +183,30 @@
         </div>
         <div
           id="section2-3"
-          class="content-inner-2 relative flex items-center justify-between text-[#fff0b3] w-full overflow-hidden h-screen"
+          class="content-inner-2 relative flex items-center justify-between max-[599px]:justify-center max-[599px]:flex-col text-[#fff0b3] w-full overflow-hidden h-screen"
         >
           <div
             id="top-nav-sec2-3"
             class="nav-inner-2 absolute z-[5] top-0 w-full py-2 px-6 border-y-[1px] border-black bg-white"
           >
-            <h3 class="text-[1.2vw] font-[semibold]">Play</h3>
+            <h3 class="text-[1.2vw] max-[599px]:text-[5vw] font-[semibold]">
+              Play
+            </h3>
           </div>
           <div
-            class="lft-content-inner-2 z-[4] flex items-start justify-center flex-col w-1/2 h-full px-6"
+            class="lft-content-inner-2 z-[4] flex items-start justify-center flex-col w-1/2 max-[599px]:w-full h-full px-6"
           >
-            <h1 class="font-[semibold] text-[5vw]">Play</h1>
-            <p class="text-[1.7vw] w-[75%] font-[regular] leading-[1.2]">
+            <h1 class="font-[semibold] text-[5vw] max-[599px]:text-[15vw]">
+              Play
+            </h1>
+            <p
+              class="text-[1.7vw] max-[599px]:text-[3.7vw] w-[75%] max-[599px]:w-full font-[regular] leading-[1.2]"
+            >
               Play with your co-worker in multiplayer mode
             </p>
           </div>
           <div
-            class="rght-content-inner-2 z-[4] w-1/2 h-full flex items-center px-6"
+            class="rght-content-inner-2 z-[4] w-1/2 max-[599px]:w-full h-full flex items-center px-6"
           >
             <img
               width="100%"
@@ -187,24 +217,30 @@
         </div>
         <div
           id="section2-4"
-          class="content-inner-2 relative flex items-center justify-between text-[#fff0b3] bg-[#FD7024] w-full overflow-hidden h-screen"
+          class="content-inner-2 relative flex items-center justify-between max-[599px]:justify-center max-[599px]:flex-col text-[#fff0b3] bg-[#FD7024] w-full overflow-hidden h-screen"
         >
           <div
             id="top-nav-sec2-4"
             class="nav-inner-2 absolute z-[6] top-0 w-full py-2 px-6 border-y-[1px] border-black bg-white"
           >
-            <h3 class="text-[1.2vw] font-[semibold]">Improve</h3>
+            <h3 class="text-[1.2vw] max-[599px]:text-[5vw] font-[semibold]">
+              Improve
+            </h3>
           </div>
           <div
-            class="lft-content-inner-2 z-[4] flex items-start justify-center flex-col w-1/2 h-full px-6"
+            class="lft-content-inner-2 z-[4] flex items-start justify-center flex-col w-1/2 max-[599px]:w-full h-full px-6"
           >
-            <h1 class="font-[semibold] text-[5vw]">Improve</h1>
-            <p class="text-[1.7vw] w-[75%] font-[regular] leading-[1.2]">
+            <h1 class="font-[semibold] text-[5vw] max-[599px]:text-[15vw]">
+              Improve
+            </h1>
+            <p
+              class="text-[1.7vw] max-[599px]:text-[3.7vw] w-[75%] max-[599px]:w-full font-[regular] leading-[1.2]"
+            >
               Improve with tailored feedback through an adaptive experience
             </p>
           </div>
           <div
-            class="rght-content-inner-2 z-[4] w-1/2 h-full flex items-center px-6"
+            class="rght-content-inner-2 z-[4] w-1/2 max-[599px]:w-full h-full flex items-center px-6"
           >
             <img
               width="100%"
@@ -216,13 +252,19 @@
       </section>
 
       <section
-        class="section-3 h-screen w-full bg-[#88B7BD] flex items-center justify-center"
+        class="section-3 h-screen w-full bg-[#88B7BD] flex items-center justify-center max-[599px]:justify-evenly max-[599px]:flex-col"
       >
-        <div class="left text-center w-[60%] font-[bold] relative">
+        <div
+          class="left text-center w-[60%] max-[599px]:w-full font-[bold] relative"
+        >
           <div class="flex items-center justify-center">
             <div class="leading-none">
-              <h1 class="text-[9.8vw] text-[#FFF0B3]">practice</h1>
-              <h1 class="text-[9.8vw] text-[#FFF0B3] ml-[-32%] mt-[-12.5%]">
+              <h1 class="text-[9.8vw] max-[599px]:text-[16.5vw] text-[#FFF0B3]">
+                practice
+              </h1>
+              <h1
+                class="your text-[9.8vw] max-[599px]:text-[16.5vw] text-[#FFF0B3] ml-[-32%] mt-[-12.5%]"
+              >
                 your
               </h1>
             </div>
@@ -240,7 +282,7 @@
                 ></path>
               </svg>
             </span>
-            <span class="absolute top-[-5%] left-[63.5%] w-[9%]">
+            <span class="star absolute top-[-5%] left-[63.5%] w-[9%]">
               <svg
                 width="100%"
                 height="100%"
@@ -276,7 +318,7 @@
         </div>
 
         <div
-          class="right relative w-[50%] h-[60%] font-[semibold] text-[3.5vw] leading-none"
+          class="right relative w-[50%] max-[599px]:w-full h-[60%] font-[semibold] text-[3.5vw] max-[599px]:text-[7vw] leading-none"
         >
           <span
             class="float absolute bg-[#FFF0B3] text-[#2E2111] py-1 px-2 rotate-[1deg] top-[2%] left-[30%] hover:bg-[#FD7024] hover:text-[#2E2111] transition-all select-none"

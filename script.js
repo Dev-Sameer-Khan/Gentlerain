@@ -256,3 +256,38 @@ function float() {
   });
 }
 float();
+
+gsap.from(".right",{
+  scrollTrigger : {
+    trigger : ".section-3",
+    start : "0% 50%",
+    end : "100% bottom",
+    scrub : .3
+  },
+  y : 300,
+  opacity : 0,
+  duration : 1,
+  ease : "power3"
+})
+gsap.from(".your",{
+  scrollTrigger : {
+    trigger : ".section-3",
+    start : "0% 50%",
+    end : "100% bottom",
+    scrub : .3
+  },
+  x : 100,
+  duration : 1,
+  ease : "power3"
+})
+gsap.from(".star",{
+  scrollTrigger : {
+    trigger : ".section-3",
+    start : "0% 50%",
+    end : "100% bottom",
+    scrub : .3
+  },
+  scale : 0,
+  duration : 1,
+  ease : "power3"
+})
