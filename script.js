@@ -25,6 +25,7 @@ UnicornStudio.addScene({
   },
 });
 
+document.addEventListener("DOMContentLoaded", (event) => {
 let videoContainer = document.querySelector(".section-2");
 let blob = document.querySelector("#blob");
 
@@ -37,7 +38,7 @@ videoContainer.addEventListener("mousemove", (e) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", (event) => {
+
   gsap.registerPlugin(ScrollTrigger);
 
   var part1 = gsap.timeline({
@@ -158,7 +159,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .to("#section2-4 h1, #section2-4 p, #section2-4 img", {
       y: 150,
     });
-});
+
 
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
@@ -291,3 +292,5 @@ gsap.from(".star",{
   duration : 1,
   ease : "power3"
 })
+
+});
