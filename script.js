@@ -9,21 +9,21 @@ requestAnimationFrame(raf);
 
 UnicornStudio.addScene({
   elementId: "unicorn",
-  fps: 60, 
-  scale: 1, 
-  dpi: 1, 
-  projectId: "YOUR_PROJECT_EMBED_ID", 
-  lazyLoad: true, 
-  filePath: "./effect.json", 
+  fps: 60,
+  scale: 1,
+  dpi: 1,
+  projectId: "YOUR_PROJECT_EMBED_ID",
+  lazyLoad: true,
+  filePath: "./effect.json",
   altText: "Welcome to Unicorn Studio",
   ariaLabel: "This is a canvas scene",
   production: false,
   interactivity: {
     mouse: {
-      disableMobile: true, 
+      disableMobile: true,
     },
   },
-})
+});
 
 let videoContainer = document.querySelector(".section-2");
 let blob = document.querySelector("#blob");
@@ -32,8 +32,8 @@ videoContainer.addEventListener("mousemove", (e) => {
   gsap.to(blob, {
     x: (e.clientX - blob.clientWidth / 2 - 300) * 0.2,
     y: (e.clientY - blob.clientHeight / 2 - 10) * 0.2,
-    duration: 2, 
-    ease: "power1.out", 
+    duration: 2,
+    ease: "power1.out",
   });
 });
 
@@ -160,83 +160,99 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 });
 
-
 const canvas = document.querySelector("canvas");
-        const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
-        const frames = {
-            currentIndex: 0,
-            maxIndex: 147
-        };
+const frames = {
+  currentIndex: 0,
+  maxIndex: 147,
+};
 
-        let imagesLoaded = 0;
-        let images = [];
+let imagesLoaded = 0;
+let images = [];
 
-        function preloadImages() {
-            for (let i = 1; i <= frames.maxIndex; i++) {
-                const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.jpeg`;
-                const img = new Image();
-                img.src = imageUrl;
-                img.onload = () => {
-                    imagesLoaded++;
-                    if (imagesLoaded === frames.maxIndex) {
-                        loadImages(frames.currentIndex);
-                        startAnimation();
-                    }
-                };
-                images.push(img);
-            }
-        }
+function preloadImages() {
+  for (let i = 1; i <= frames.maxIndex; i++) {
+    const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.jpeg`;
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => {
+      imagesLoaded++;
+      if (imagesLoaded === frames.maxIndex) {
+        loadImages(frames.currentIndex);
+        startAnimation();
+      }
+    };
+    images.push(img);
+  }
+}
 
-        function loadImages(index) {
-            if (index >= 0 && index < frames.maxIndex) {
-                const img = images[index];
+function loadImages(index) {
+  if (index >= 0 && index < frames.maxIndex) {
+    const img = images[index];
 
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-                const scaleX = canvas.width / img.width;
-                const scaleY = canvas.height / img.height;
-                const scale = Math.max(scaleX, scaleY);
+    const scaleX = canvas.width / img.width;
+    const scaleY = canvas.height / img.height;
+    const scale = Math.max(scaleX, scaleY);
 
-                const newWidth = img.width * scale;
-                const newHeight = img.height * scale;
+    const newWidth = img.width * scale;
+    const newHeight = img.height * scale;
 
-                const offsetX = (canvas.width - newWidth) / 2;
-                const offsetY = (canvas.height - newHeight) / 2;
+    const offsetX = (canvas.width - newWidth) / 2;
+    const offsetY = (canvas.height - newHeight) / 2;
 
-                ctx.imageSmoothingEnabled = true;
-                ctx.imageSmoothingQuality = "high";
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
 
-                frames.currentIndex = index;
-            }
-        }
+    frames.currentIndex = index;
+  }
+}
 
-        function startAnimation() {
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: ".parent",
-                    start: "top top",
-                    end: "1000% bottom",
-                    pin : true, 
-                    scrub: 2,
-                },
-            });
-            function updateFrames(index) {
-                return {
-                    currentIndex: index,
-                    ease: "linear",
-                    onUpdate: function () {
-                        loadImages(Math.floor(frames.currentIndex));
-                    },
-                };
-            }
-            tl.to(frames, updateFrames(frames.maxIndex), "a"); // Ensure frames are updated
-            window.addEventListener("resize", function () {
-                loadImages(Math.floor(frames.currentIndex));
-            });
-        }
+function startAnimation() {
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".parent",
+      start: "top top",
+      end: "1000% bottom",
+      pin: true,
+      scrub: 2,
+    },
+  });
+  function updateFrames(index) {
+    return {
+      currentIndex: index,
+      ease: "linear",
+      onUpdate: function () {
+        loadImages(Math.floor(frames.currentIndex));
+      },
+    };
+  }
+  tl.to(frames, updateFrames(frames.maxIndex), "a"); // Ensure frames are updated
+  window.addEventListener("resize", function () {
+    loadImages(Math.floor(frames.currentIndex));
+  });
+}
 
-        preloadImages();
+preloadImages();
+
+function float() {
+  let floats = document.querySelectorAll(".float");
+  let papadiv = document.querySelector(".section-3");
+
+  papadiv.addEventListener("mousemove", (e) => {
+    floats.forEach((float) => {
+      let value = float.getAttribute("value");
+
+      let x = (window.innerWidth - e.clientX * value) / 50;
+      let y = (window.innerHeight - e.clientY * value) / 50;
+
+      gsap.to(float, { x: x, y: y, duration: 0.5 });
+    });
+  });
+}
+float();
